@@ -8,7 +8,7 @@
     "start": "nodemon app.js",
     "serve": "nodemon app.js"
   },
-  "author": "Bao Nguyen",
+  "author": "Thien Nguyen",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

@@ -8,8 +8,11 @@ import ContactView from '../ContactView/ContactView.jsx';
 import AboutView from '../AboutView/AboutView.jsx';
 import React, { Component } from 'react';
 import introDetail from '../../resouces/Text/Intro/introDetail';
+import { getUsers } from "../../actions/users"
 export default class App extends Component {
   render() {
+    // const dispatch = useDispatch();
+
     return (
       <Router>
         <NavBar />
