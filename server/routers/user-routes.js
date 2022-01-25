@@ -8,7 +8,8 @@ var userControllers = require("../controllers/user-controllers")
 
 router.get("/profile", userControllers.getUser)
 router.post("/create", userControllers.createUser)
-
+router.put("/update/:id", userControllers.updateUser)
+router.delete("/delete/:id", userControllers.deleteUser)
 // router.get('/profile', isLoggedIn, function (req, res, next) {
 //     res.render('user/profile');
 // });

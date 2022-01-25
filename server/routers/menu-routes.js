@@ -20,8 +20,10 @@ router.get('/food', menuControllers.getAllFood);
 router.post('/', menuControllers.addNewItem);
 
 // get an item by id
-router.get('/:iid', menuControllers.getItemById);
-
-
+router.get('/:id', menuControllers.getItemById);
+//delete an item by id
+router.delete('/:id', menuControllers.deleteItemById)
+//update an item by id
+router.put('/:id', menuControllers.updateItemById)
 // export
 module.exports = router;
