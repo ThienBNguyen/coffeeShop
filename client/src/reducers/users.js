@@ -1,10 +1,11 @@
 export default (users = [], action) => {
     switch (action.type) {
-        case "FETCH_ALL":
+        case "FETCH_USER":
             return action.payload;
-        case "Create":
+        case "CREATE":
             return users;
         default:
+            return users;
             break;
     }
 }

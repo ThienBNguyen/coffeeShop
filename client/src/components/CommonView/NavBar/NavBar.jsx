@@ -7,7 +7,7 @@ function NavBar() {
     <Navbar
       bg="black"
       expand="lg"
-      variant="dark"  
+      variant="dark"
       className="ftco-navbar-light"
       fixed="top"
     >
@@ -17,23 +17,26 @@ function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
-          <NavLink  exact="true" to="/home" className="nav-link" activeClassName="link-active">
+          <NavLink exact="true" to="/home" className="nav-link" activeClassName="link-active">
             Home
           </NavLink>
-          <NavLink  to="/Menu" className="nav-link" activeClassName="link-active">
+          <NavLink to="/Menu" className="nav-link" activeClassName="link-active">
             Menu
           </NavLink>
-          <NavLink  to="/Service" className="nav-link" activeClassName="link-active">
+          <NavLink to="/Service" className="nav-link" activeClassName="link-active">
             Service
           </NavLink>
-          <NavLink  to="/Blog" className="nav-link" activeClassName="link-active">
+          <NavLink to="/Blog" className="nav-link" activeClassName="link-active">
             Blog
           </NavLink>
-          <NavLink  to="/About" className="nav-link" activeClassName="link-active">
+          <NavLink to="/About" className="nav-link" activeClassName="link-active">
             About
           </NavLink>
           <NavLink className="nav-link" to="/Contact">
             Contact
+          </NavLink>
+          <NavLink className="nav-link" to="/register">
+            Register
           </NavLink>
         </Nav>
       </Navbar.Collapse>
