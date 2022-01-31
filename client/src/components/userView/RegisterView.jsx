@@ -17,7 +17,7 @@ function RegisterView() {
     const handleSubmit = (e) => {
         e.preventDedault();
         dispatch(createUser(postUser))
-        console.log(dispatch(createUser(postUser)))
+
     }
     return (
         <div className="container w-50 " style={divStyle}>

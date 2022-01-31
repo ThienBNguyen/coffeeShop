@@ -38,6 +38,9 @@ function NavBar() {
           <NavLink className="nav-link" to="/register">
             Register
           </NavLink>
+          <NavLink className="nav-link" to="/login">
+            Log In
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

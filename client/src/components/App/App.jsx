@@ -11,13 +11,28 @@ import introDetail from '../../resouces/Text/Intro/introDetail';
 import RegisterView from '../userView/RegisterView'
 import { getUsers } from "../../actions/users"
 import { useDispatch } from "react-redux"
+import LoginView from '../userView/LoginView';
 const App = () => {
-
-  const dispatch = useDispatch();
+  // const getUserUrl = 'http://localhost:5000/user/profile'
+  // const [data, setData] = useState({ Users: [] });
+  // const fetchUser = () => axios.get(getUserUrl)
+  const dispatch = useDispatch(); //call action
   useEffect(() => {
     dispatch(getUsers())
 
+
   }, [dispatch])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const result = await axios(
+  //       getUserUrl
+  //     );
+
+  //     setData(result.data);
+  //   };
+
+  // fetchData();
+  // });
   return (
     <Router>
       <NavBar />
@@ -47,6 +62,10 @@ const App = () => {
         <Route
           path="/register"
           element={<RegisterView />}
+        />
+        <Route
+          path="/login"
+          element={<LoginView />}
         />
       </Routes>
     </Router>

@@ -9,8 +9,7 @@ export const getUsers = () => async (dispatch) => {
     catch (error) {
         console.log(error.message)
     }
-    // const action = {type: "FETCH_ALL", payload:[]}
-    // dispatch(action)
+
 }
 export const createUser = (user) => async (dispatch) => {
     try {
