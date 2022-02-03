@@ -7,7 +7,7 @@ const HttpError = require("../models/http-error");
 
 const getUser = async (req, res) => {
     try {
-        const user = await User.find()
+        const user = await User.find()// find all use in the data base for admin
         res.status(200).json(user);
     } catch (error) {
         res.status(404).json({ message: error.message })
@@ -15,7 +15,7 @@ const getUser = async (req, res) => {
 }
 // create form in the front
 const createUser = async (req, res) => {
-    const user = await new User(req.body);
+    const user = await new User(req.body); // get json data
     //check if email is already in use
     const isNewUser = await User.isThisEmailInUse(user.email);
     try {
@@ -54,7 +54,20 @@ const deleteUser = async (req, res, body) => {
         res.status(404).json({ message: error.message })
     }
 }
+const loginUser = async (req, res) => {
+    const user = await new User(req.body);
+    const userVerification = await User.isThisUserMatch(user);
+    // console.log(userVerification)
+    try {
+        if (userVerification != null) {
+            return res.status(200).json(userVerification)
+        }
+    } catch (error) {
+        res.status(500).json({ message: "email is not found" })
+    }
+}
 exports.getUser = getUser
+exports.loginUser = loginUser
 exports.createUser = createUser
 exports.updateUser = updateUser
 exports.deleteUser = deleteUser
