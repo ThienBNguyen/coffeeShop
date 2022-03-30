@@ -1,46 +1,105 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { createUser } from '../../actions/users'
-function RegisterView() {
-    const [postUser, setDataUser] = useState({ name: '', email: '', password: '' })
 
+import React, { useState, useCallback, useEffect, } from 'react';
+import { connect } from 'react-redux';
+import { register } from '../../action/authAction';
+import { clearErrors } from '../../action/errorAction';
+import { useNavigate } from "react-router-dom";
+const RegisterView = ({
+    isAuthenticated,
+    error,
+    register,
+    clearErrors
+}) => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [msg, setMsg] = useState(null);
+    const navigate = useNavigate();
     const divStyle = {
         marginTop: '150px'
     }
     const formStyle = {
         backgroundColor: 'lightGrey'
     }
-    const users = useSelector((state) => state.users)
-    console.log(users)
-    const dispatch = useDispatch();
-    const handleSubmit = (e) => {
-        e.preventDedault();
-        dispatch(createUser(postUser))
+    const handleToggle = useCallback(() => {
+        // Clear errors
+        clearErrors();
+    }, [clearErrors]);
 
-    }
+    const handleChangeName = (e) => setName(e.target.value);
+    const handleChangeEmail = (e) => setEmail(e.target.value);
+    const handleChangePassword = (e) => setPassword(e.target.value);
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+
+        // Create user object
+        const user = {
+            name,
+            email,
+            password
+        };
+        // Attempt to login
+        register(user);
+    };
+
+    useEffect(() => {
+        // Check for register error
+        if (error.id === 'REGISTER_FAIL') {
+            setMsg(error.msg.msg);
+        } else {
+            setMsg(null);
+        }
+
+        // If authenticated, redirect
+        if (isAuthenticated) {
+            navigate('/')
+        }
+    }, [error, handleToggle, isAuthenticated, navigate]);
+
     return (
         <div className="container w-50 " style={divStyle}>
-            <form className="  p-4 " style={formStyle}>
+            <h1>Register</h1>
+            {msg ? (<p className="btn btn-danger">{msg}</p>) : null}
+            <form onSubmit={handleOnSubmit} className="p-4 " style={formStyle}>
                 <div className="form-group">
-                    <label>Name </label>
-                    <input className="form-control" type="text" name="name" onChange={(e) => setDataUser({ name: e.target.value })}></input>
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        className="form-control"
+                        placeholder="name"
+                        onChange={handleChangeName}
+                    />
                 </div>
 
                 <div className="form-group">
                     <label>email</label>
-                    <input className="form-control" type="email" name="email" value={postUser.email} onChange={(e) => setDataUser({ email: e.target.value })}></input>
+                    <input className="form-control" type="email"
+                        name="email"
+                        id="email" onChange={handleChangeEmail}></input>
                 </div>
                 <div className="form-group">
                     <label>password               </label>
-                    <input className="form-control" type="password" name="password" value={postUser.password} onChange={(e) => setDataUser({ password: e.target.value })}></input>
+                    <input className="form-control" type="password"
+                        name="password"
+                        id="password"
+                        onChange={handleChangePassword}></input>
                 </div>
-                <input type="submit" value="submit" className="btn btn-primary" onSubmit={handleSubmit} />
+                <button className="btn btn-primary" >Register</button>
             </form>
-            {/* </div>
-            </div> */}
+
         </div>
     );
-}
 
-export default RegisterView;
+};
+
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
+});
+
+export default connect(mapStateToProps, { register, clearErrors })(
+    RegisterView
+);

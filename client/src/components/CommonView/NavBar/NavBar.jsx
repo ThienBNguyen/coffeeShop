@@ -1,8 +1,28 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.scss";
-function NavBar() {
+import { connect } from "react-redux"
+import LogoutView from "../../userView/LogoutView"
+const NavBar = ({ auth }) => {
+  const authLinks = (
+    <Fragment>
+      <NavLink className="nav-link" to="/register">
+        Register
+          </NavLink>
+      <NavLink className="nav-link" to="/login">
+        Log In
+          </NavLink>
+
+    </Fragment>
+  )
+
+  const logout = (
+    <Fragment>
+      <LogoutView />
+
+    </Fragment>
+  )
   return (
     <Navbar
       bg="black"
@@ -13,9 +33,11 @@ function NavBar() {
     >
       <Navbar.Brand href="/">
         TH <small>Coffee</small>
+
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
+        <h5 className="navbar-text mr-3"><strong>{auth && auth.user ? `welcome ${auth.user.name}` : ""}</strong></h5>
         <Nav className="m-auto">
           <NavLink exact="true" to="/home" className="nav-link" activeClassName="link-active">
             Home
@@ -35,16 +57,14 @@ function NavBar() {
           <NavLink className="nav-link" to="/Contact">
             Contact
           </NavLink>
-          <NavLink className="nav-link" to="/register">
-            Register
-          </NavLink>
-          <NavLink className="nav-link" to="/login">
-            Log In
-          </NavLink>
+
+          {auth && auth.isAuthenticated ? logout : authLinks}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
 }
-
-export default NavBar;
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps, null)(NavBar);

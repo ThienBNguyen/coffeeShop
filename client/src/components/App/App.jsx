@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomeView from '../HomeView/HomeView/HomeView';
 import MenuView from '../MenuView/MenuView/MenuView.jsx';
 import NavBar from '../CommonView/NavBar/NavBar.jsx';
@@ -9,32 +9,18 @@ import AboutView from '../AboutView/AboutView.jsx';
 import React, { useEffect } from 'react';
 import introDetail from '../../resouces/Text/Intro/introDetail';
 import RegisterView from '../userView/RegisterView'
-import { getUsers } from "../../actions/users"
-import { useDispatch } from "react-redux"
 import LoginView from '../userView/LoginView';
+import store from '../../store/store';
+import { loadUser } from '../../action/authAction';
 const App = () => {
-  // const getUserUrl = 'http://localhost:5000/user/profile'
-  // const [data, setData] = useState({ Users: [] });
-  // const fetchUser = () => axios.get(getUserUrl)
-  const dispatch = useDispatch(); //call action
+
   useEffect(() => {
-    dispatch(getUsers())
+    store.dispatch(loadUser());
+  });
 
 
-  }, [dispatch])
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await axios(
-  //       getUserUrl
-  //     );
-
-  //     setData(result.data);
-  //   };
-
-  // fetchData();
-  // });
   return (
-    <Router>
+    <Router >
       <NavBar />
       <Routes>
         <Route path="/" element={<HomeView />} />
@@ -61,12 +47,14 @@ const App = () => {
         />
         <Route
           path="/register"
+
           element={<RegisterView />}
         />
         <Route
           path="/login"
           element={<LoginView />}
         />
+        <Route path="/redirect" element={<Navigate to="/home" />} />
       </Routes>
     </Router>
   );
