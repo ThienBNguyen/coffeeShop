@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import "./style.scss";
 import { connect } from "react-redux"
 import LogoutView from "../../userView/LogoutView"
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 const NavBar = ({ auth }) => {
   const authLinks = (
     <Fragment>
@@ -57,8 +59,11 @@ const NavBar = ({ auth }) => {
           <NavLink className="nav-link" to="/Contact">
             Contact
           </NavLink>
-
           {auth && auth.isAuthenticated ? logout : authLinks}
+          <NavLink className="nav-link" to="/cart">
+            <ShoppingCartIcon /> <span>cart</span>  <span>0</span>
+          </NavLink>
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>

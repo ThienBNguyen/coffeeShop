@@ -12,6 +12,7 @@ import RegisterView from '../userView/RegisterView'
 import LoginView from '../userView/LoginView';
 import store from '../../store/store';
 import { loadUser } from '../../action/authAction';
+import CartView from '../userView/cart/CartView'
 const App = () => {
 
   useEffect(() => {
@@ -53,6 +54,10 @@ const App = () => {
         <Route
           path="/login"
           element={<LoginView />}
+        />
+        <Route
+          path="/cart"
+          element={<CartView />}
         />
         <Route path="/redirect" element={<Navigate to="/home" />} />
       </Routes>

@@ -8,9 +8,6 @@ import MenuIntro from './MenuIntro/MenuIntro';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-// import SubMenuData from './SubMenuData/SubMenuData';
-// import DessertImages from '../../../../resouces/images/menuImages/dessertImages';
-// import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
 const SubMenuView = () => {
   const [isShown, setIsShown] = useState(false);
   const [drinkIsShow, drinkIsShown] = useState(true);

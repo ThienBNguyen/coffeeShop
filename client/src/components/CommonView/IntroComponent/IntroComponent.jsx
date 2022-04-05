@@ -1,7 +1,8 @@
 import React from 'react';
 import bg3 from '../../../resouces/images/backgroundImages/bg_3.jpg';
 import './IntroComponent.scss';
-
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 export default function IntroTest(intro) {
   return (
     <div>
@@ -14,14 +15,13 @@ export default function IntroTest(intro) {
             <img className="d-block w-100 h-80" src={bg3} alt="First slide" />
           </div>
           <div className="carousel-caption justify-content-center d-none d-md-block">
-            <h1>{intro.introDetail.intro}</h1>
+            <h1 className="titleColor">{intro.introDetail.intro}</h1>
             <p className="breadcrumbs">
               <span className="mr-2">
-                <a href="/#">{intro.introDetail.home}</a>
+                <Button variant="outline-light"><Link style={{ color: "white" }} to='/menu' variant="light">Order Now</Link></Button>
+                <Button variant="outline-light"><Link style={{ color: "white" }} to='/menu' variant="light">View Menu</Link></Button>
               </span>{' '}
-              <span>
-                <a href="/#">{intro.introDetail.intro}</a>
-              </span>
+
             </p>
           </div>
         </div>

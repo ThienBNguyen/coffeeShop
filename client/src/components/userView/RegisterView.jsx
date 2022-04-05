@@ -59,9 +59,10 @@ const RegisterView = ({
 
     return (
         <div className="container w-50 " style={divStyle}>
-            <h1>Register</h1>
-            {msg ? (<p className="btn btn-danger">{msg}</p>) : null}
             <form onSubmit={handleOnSubmit} className="p-4 " style={formStyle}>
+                <h1 className="text-center titleColor">Register</h1>
+                {msg ? (<p className="btn btn-danger">{msg}</p>) : null}
+
                 <div className="form-group">
                     <label for="name">Name</label>
                     <input
