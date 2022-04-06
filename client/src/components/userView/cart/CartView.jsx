@@ -1,39 +1,59 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import "./CartView.css"
+import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { addToCart, removeFromCart } from "../../../action/cartActions/cartActions"
+import CartItem from "./CartItem"
 const CartView = () => {
-    const divStyle = {
-        marginTop: '150px'
-    }
-    const formStyle = {
-        backgroundColor: 'lightGrey'
-    }
 
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart)
+    const { cartItems } = cart
+    useEffect(() => { }, [])
+    const qtyChangeHandler = (id, qty) => {
+        dispatch(addToCart(id, qty));
+    }
+    const removeFromCartHandler = (id) => {
+        dispatch(removeFromCart(id))
+    }
+    const getCartCount = () => {
+        return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0)
+    }
+    const getCartSubTotal = () => {
+        return cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
+    }
     return (
-        <div className="cartitem">
-            {/* <div className="cartitem__image">
-                <img src={item.imageUrl} alt={item.name} />
-            </div> */}
-            {/* <Link to={`/product/${item.product}`} className="cartItem__name">
-                <p>{item.name}</p>
-            </Link>
-            <p className="cartitem__price">${item.price}</p>
-            <select
-                value={item.qty}
-                onChange={(e) => qtyChangeHandler(item.product, e.target.value)}
-                className="cartItem__select"
-            >
-                {[...Array(item.countInStock).keys()].map((x) => (
-                    <option key={x + 1} value={x + 1}>
-                        {x + 1}
-                    </option>
-                ))}
-            </select>
-            <button
-                className="cartItem__deleteBtn"
-                onClick={() => removeHandler(item.product)}
-            >
-                <i className="fas fa-trash"></i>
-            </button> */}
+        <div className="cartMain">
+            <div className="cartscreen ">
+                <div className="cartscreen__left">
+                    <h2>Shopping Cart</h2>
+
+                    {cartItems.length === 0 ? (
+                        <div>
+                            Your Cart Is Empty <Link to="/">Go Back</Link>
+                        </div>
+                    ) : (
+                            cartItems.map((item) => (
+                                <CartItem
+                                    key={item.product}
+                                    item={item}
+                                    qtyChangeHandler={qtyChangeHandler}
+                                    removeHandler={removeFromCartHandler}
+                                />
+                            ))
+                        )}
+                </div>
+
+                <div className="cartscreen__right">
+                    <div className="cartscreen__info">
+                        <p>Subtotal ({getCartCount()}) items</p>
+                        <p>${getCartSubTotal()}</p>
+                    </div>
+                    <div>
+                        <button>Proceed To Checkout</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

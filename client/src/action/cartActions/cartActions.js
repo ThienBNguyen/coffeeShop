@@ -1,6 +1,6 @@
 import * as actionTypes from '../types';
 
-import axios from ' axios';
+import axios from 'axios';
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
 	const { data } = await axios.get(`/menu/${id}`);
@@ -8,7 +8,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 		type: actionTypes.ADD_TO_CART,
 		payload: {
 			product: data._id,
-			name: data.name,
+			title: data.title,
 			imagePath: data.imagePath,
 			price: data.price,
 			countInStock: data.countInStock,

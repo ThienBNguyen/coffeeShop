@@ -5,8 +5,13 @@ import "./style.scss";
 import { connect } from "react-redux"
 import LogoutView from "../../userView/LogoutView"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-
+import { useDispatch, useSelector } from "react-redux"
 const NavBar = ({ auth }) => {
+  const cart = useSelector((state) => state.cart)
+  const { cartItems } = cart;
+  const getCartCount = () => {
+    return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0)
+  }
   const authLinks = (
     <Fragment>
       <NavLink className="nav-link" to="/register">
@@ -15,7 +20,6 @@ const NavBar = ({ auth }) => {
       <NavLink className="nav-link" to="/login">
         Log In
           </NavLink>
-
     </Fragment>
   )
 
@@ -61,7 +65,7 @@ const NavBar = ({ auth }) => {
           </NavLink>
           {auth && auth.isAuthenticated ? logout : authLinks}
           <NavLink className="nav-link" to="/cart">
-            <ShoppingCartIcon /> <span>cart</span>  <span>0</span>
+            <ShoppingCartIcon /> <span>cart</span>  <span>{getCartCount()}</span>
           </NavLink>
 
         </Nav>
