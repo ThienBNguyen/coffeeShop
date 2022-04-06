@@ -50,7 +50,7 @@ const CartView = () => {
                         <p>${getCartSubTotal()}</p>
                     </div>
                     <div>
-                        <button>Proceed To Checkout</button>
+                        <button><Link to="/payment">Proceed To Checkout</Link></button>
                     </div>
                 </div>
             </div>

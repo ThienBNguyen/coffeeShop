@@ -13,6 +13,7 @@ import LoginView from '../userView/LoginView';
 import store from '../../store/store';
 import { loadUser } from '../../action/authAction';
 import CartView from '../userView/cart/CartView'
+import PaymentView from '../PaymentView/PaymentView';
 const App = () => {
 
   useEffect(() => {
@@ -58,6 +59,10 @@ const App = () => {
         <Route
           path="/cart"
           element={<CartView />}
+        />
+        <Route
+          path="/payment"
+          element={<PaymentView />}
         />
         <Route path="/redirect" element={<Navigate to="/home" />} />
       </Routes>
