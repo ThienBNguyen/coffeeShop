@@ -13,7 +13,7 @@ import LoginView from '../userView/LoginView';
 import store from '../../store/store';
 import { loadUser } from '../../action/authAction';
 import CartView from '../userView/cart/CartView'
-import PaymentView from '../PaymentView/PaymentView';
+import CheckOutView from '../PaymentView/CheckOutView';
 const App = () => {
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const App = () => {
         />
         <Route
           path="/payment"
-          element={<PaymentView />}
+          element={<CheckOutView />}
         />
         <Route path="/redirect" element={<Navigate to="/home" />} />
       </Routes>

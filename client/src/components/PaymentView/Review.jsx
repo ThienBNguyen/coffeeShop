@@ -1,11 +1,12 @@
 import React from 'react';
 import { ListGroup, Badge } from 'react-bootstrap';
+import { Typography } from '@material-ui/core';
 
 const Review = ({ item, getCartSubTotal }) => {
     const itemTotal = item.qty * item.price;
     return (
-        <div className="container w-50">
-            <h3 gutterBottom>Shipping address</h3>
+        <div className="">
+            <Typography gutterBottom>Order Summary</Typography>
             {item.map((item) => (
                 <ListGroup as="ol" numbered>
                     <ListGroup.Item
@@ -13,7 +14,7 @@ const Review = ({ item, getCartSubTotal }) => {
                         className="d-flex justify-content-between align-items-start"
                     >
                         <div className="ms-2 me-auto">
-                            <h5 variant="dark" className="fw-bold">{item.title}</h5>
+                            <Typography variant="h6" gutterButton className="fw-bold">{item.title}</Typography>
                             <span>Quantity:</span> <span>{item.qty}</span>
                         </div>
                         <Badge bg="primary" pill>
@@ -22,8 +23,8 @@ const Review = ({ item, getCartSubTotal }) => {
                     </ListGroup.Item>
                 </ListGroup>
             ))}
-            <h5 variant="dark">Total</h5>
-            <h5>${getCartSubTotal()}</h5>
+            <Typography variant="h6" >Total</Typography>
+            <Typography variant="h6" >${getCartSubTotal()}</Typography>
 
         </div>
     );

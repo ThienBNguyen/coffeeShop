@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-const AddressForm = () => {
+const AddressForm = ({ nextStep }) => {
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState('');
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -9,9 +9,9 @@ const AddressForm = () => {
     const [shippingOptions, setShippingOptions] = useState([]);
     const [shippingOption, setShippingOption] = useState('');
     return (
-        <div className="container w-50">
+        <div className="">
             <h3 gutterBottom>Shipping address</h3>
-            <Form>
+            <Form onSubmit={nextStep}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>First name</Form.Label>
                     <Form.Control type="text" placeholder="firstName" />
