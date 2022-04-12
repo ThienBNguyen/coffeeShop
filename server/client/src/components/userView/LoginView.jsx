@@ -47,7 +47,7 @@ const LoginView = ({
     return (
         <div className="container w-50" style={divStyle}>
             <form onSubmit={handleSubmit} className="p-4" style={formStyle}>
-                <h2 className="text-center titleColor">Login</h2>
+                <h1 className="text-center titleColor">Login</h1>
                 {msg ? <p className="btn btn-danger">{msg}</p> : null}
                 <div className="form-group">
                     <label>Enter email</label>
@@ -57,7 +57,7 @@ const LoginView = ({
                     <label>Enter password</label>
                     <input type="password" className="form-control" value={password} onChange={handleChangePassword} />
                 </div>
-                <input type="submit" value="submit" />
+                <button className="btn btn-primary" value="submit" > Submit</button>
             </form>
         </div>
     );

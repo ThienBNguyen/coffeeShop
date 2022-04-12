@@ -30,7 +30,7 @@ const CartView = () => {
         <div className="cartMain " >
             <div className="cartscreen ">
                 <div className="  cartscreen__left ">
-                    <h2 style={headingStyle}>Shopping Cart</h2>
+                    <h2 style={headingStyle} className="titleColor text-center">Shopping Cart</h2>
 
                     {cartItems.length === 0 ? (
                         <div>
@@ -55,7 +55,7 @@ const CartView = () => {
                         <p>${getCartSubTotal()}</p>
                     </div>
                     <div>
-                        <Button type="submit" ><Link style={{color: "white"}} to="/payment">Proceed To Checkout</Link></Button>
+                        <Button type="submit" ><Link style={{ color: "white" }} to="/payment">Proceed To Checkout</Link></Button>
                     </div>
                 </div>
             </div>
