@@ -26,3 +26,10 @@ export const removeFromCart = (id) => (dispatch, getState) => {
 	});
 	localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems));
 };
+export const removeAllFromCart = () => (dispatch, getState) => {
+	dispatch({
+		type: actionTypes.REMOVE_ALL_FROM_CART,
+		payload: ''
+	});
+	localStorage.removeItem('cart', JSON.stringify(getState().cart.cartItems));
+};

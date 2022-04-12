@@ -5,7 +5,7 @@ import "./style.scss";
 import { connect } from "react-redux"
 import LogoutView from "../../userView/LogoutView"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 const NavBar = ({ auth }) => {
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart;

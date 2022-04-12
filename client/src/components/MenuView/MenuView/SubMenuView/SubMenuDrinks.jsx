@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
-// import DrinkImages from '../../../../resouces/images/menuImages/drinkImages';
 import './SubMenu.scss';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { useSelector, useDispatch } from 'react-redux'
 import { getProducts as listProducts } from "../../../../action/cartActions/productActions"
 import { addToCart } from "../../../../action/cartActions/cartActions"
-import { Link } from "react-router-dom"
 const SubMenuDrinks = () => {
   const dispatch = useDispatch();
   const getProducts = useSelector((state) => state.getProducts)
-  const { products, loading, error } = getProducts;
+  const { products } = getProducts;
   useEffect(() => {
     dispatch(listProducts())
   }, [dispatch])
@@ -42,7 +40,10 @@ const SubMenuDrinks = () => {
           </Card.Body>{' '}
           <Button variant="primary" onClick={() => addToCartHandler(item._id)}><AddShoppingCartIcon /></Button>
         </Card>
-      );
+      )
+
+    } else {
+      return null
     }
   });
 

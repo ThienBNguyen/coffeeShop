@@ -3,7 +3,6 @@ import { ListGroup, Badge } from 'react-bootstrap';
 import { Typography } from '@material-ui/core';
 
 const Review = ({ item, getCartSubTotal }) => {
-    const itemTotal = item.qty * item.price;
     return (
         <div className="">
             <Typography gutterBottom>Order Summary</Typography>

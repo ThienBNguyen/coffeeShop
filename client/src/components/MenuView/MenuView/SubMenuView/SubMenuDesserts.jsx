@@ -5,15 +5,14 @@ import { Card, Button } from 'react-bootstrap';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from "../../../../action/cartActions/cartActions"
-import { Link } from "react-router-dom"
 const SubMenuDesserts = () => {
   const dispatch = useDispatch()
   const getProducts = useSelector((state) => state.getProducts)
-  const { products, loading, error } = getProducts
+  const { products } = getProducts
   const addToCartHandler = (product) => {
     dispatch(addToCart(product, 1));
   }
-  const menuDesserts = products.map(function (item, i) {
+  return (<div className="SubMenuItems">{products.map(function (item, i) {
     if (item.food === true) {
       return (
         <Card
@@ -37,9 +36,10 @@ const SubMenuDesserts = () => {
           <Button variant="primary" onClick={() => addToCartHandler(item._id)}><AddShoppingCartIcon /></Button>
         </Card>
       );
+    } else {
+      return null;
     }
-  });
-  return <div className="SubMenuItems">{menuDesserts}</div>;
+  })}</div>);
 };
 
 export default SubMenuDesserts;
