@@ -1,12 +1,13 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { Typography, Button } from '@material-ui/core';
 const AddressForm = ({ addressForm }) => {
     const { register, handleSubmit } = useForm()
     return (
         < >
-            <h3 gutterBottom>Shipping address</h3>
+            <Typography gutterBottom>Shipping address</Typography>
             <Form onSubmit={handleSubmit((data) => {
                 addressForm(data)
             })}>
@@ -37,11 +38,11 @@ const AddressForm = ({ addressForm }) => {
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     {/* using react router dom LINK on the back to cart  */}
-                    <Button className="color-primary"><Link to="/cart" >Back to Cart</Link></Button>
+                    <Button variant="outlined"><Link className="color" to="/cart" >Back to Cart</Link></Button>
                     {/* using method handle submit to go next payment detail */}
-                    <Button type="submit" color="primary">Next</Button>
+                    <Button variant="contained" type="submit" color="primary">Next</Button>
                 </div>
-            </Form>
+            </Form >
         </>
     );
 }

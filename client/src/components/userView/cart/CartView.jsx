@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart, removeFromCart } from "../../../action/cartActions/cartActions"
 import CartItem from "./CartItem"
+import { Button } from '@material-ui/core';
 const CartView = () => {
 
     const dispatch = useDispatch();
@@ -22,11 +23,14 @@ const CartView = () => {
     const getCartSubTotal = () => {
         return cartItems.reduce((price, item) => price + item.price * item.qty, 0).toFixed(2);
     }
+    const headingStyle = {
+        Color: "lightGrey"
+    }
     return (
-        <div className="cartMain">
+        <div className="cartMain " >
             <div className="cartscreen ">
-                <div className="cartscreen__left">
-                    <h2>Shopping Cart</h2>
+                <div className="  cartscreen__left ">
+                    <h2 style={headingStyle}>Shopping Cart</h2>
 
                     {cartItems.length === 0 ? (
                         <div>
@@ -39,18 +43,19 @@ const CartView = () => {
                                     item={item}
                                     qtyChangeHandler={qtyChangeHandler}
                                     removeHandler={removeFromCartHandler}
+
                                 />
                             ))
                         )}
                 </div>
 
-                <div className="cartscreen__right">
+                <div className="cartscreen__right ">
                     <div className="cartscreen__info">
                         <p>Subtotal ({getCartCount()}) items</p>
                         <p>${getCartSubTotal()}</p>
                     </div>
                     <div>
-                        <button><Link to="/payment">Proceed To Checkout</Link></button>
+                        <Button type="submit" ><Link style={{color: "white"}} to="/payment">Proceed To Checkout</Link></Button>
                     </div>
                 </div>
             </div>

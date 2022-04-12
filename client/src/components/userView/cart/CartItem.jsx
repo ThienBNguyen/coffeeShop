@@ -4,7 +4,7 @@ import "./CartItem.css"
 import DeleteIcon from '@material-ui/icons/Delete';
 const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
 	return (
-		<div className="cartitem">
+		<div className="cartitem ">
 			<div className="cartitem__image">
 				<img src={item.imagePath} alt={item.title} />
 			</div>

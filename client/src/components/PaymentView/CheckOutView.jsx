@@ -38,13 +38,17 @@ const CheckOutView = () => {
             <button type="button" ><Link to="/">Back to home </Link></button>
         </div>
     )
+    const styleForm = {
+        // backgroundColor: `lightGrey`,
+        // margin: `solid lightGrey`
+    }
     return (
         <>
-            <CssBaseline />
-            <div className={classes.toolbar} />
-            <div className={classes.layout}>
-                <Paper className={classes.paper}>
-                    <Typography variant="h4" align="center">Checkout</Typography>
+            <CssBaseline style={styleForm} />
+            <div style={styleForm} className={classes.toolbar} />
+            <div style={styleForm} className={classes.layout}>
+                <Paper style={styleForm} className={classes.paper}>
+                    <Typography gutterBottom variant="h4" align="center" >Checkout</Typography>
                     <Stepper activeStep={activeStep} className={classes.stepper}>
                         {steps.map((label) => (
 
