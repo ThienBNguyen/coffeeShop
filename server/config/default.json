@@ -1,3 +1,4 @@
 {
-	"jwtSecret": "jwt_secret"
+	"jwtSecret": "jwt_secret",
+	"port": 5000
 }
