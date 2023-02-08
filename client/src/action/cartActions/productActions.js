@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getProducts = () => async (dispatch) => {
 	try {
 		dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
-		const { data } = await axios.get('/menu');
+		const { data } = await axios.get('https://coffee-nslh.onrender.com/menu');
 		dispatch({
 			type: actionTypes.GET_PRODUCTS_SUCCESS,
 			payload: data
@@ -20,7 +20,7 @@ export const getProducts = () => async (dispatch) => {
 export const getProductDetails = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
-		const { data } = await axios.get(`/munu/${id}`);
+		const { data } = await axios.get(`https://coffee-nslh.onrender.com/menu/${id}`);
 		dispatch({
 			type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS,
 			payload: data

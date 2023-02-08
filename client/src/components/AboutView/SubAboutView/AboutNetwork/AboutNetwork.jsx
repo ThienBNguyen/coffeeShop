@@ -1,5 +1,5 @@
 import React from 'react';
-import '../SubAbout.scss';
+import '../SubAbout.css';
 import AboutNetworkData from './AboutNetWorkData/AboutNetWorkData';
 import Background from '../../../../resouces/images/AboutImages/bg_2.jpg';
 

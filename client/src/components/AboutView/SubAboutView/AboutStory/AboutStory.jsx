@@ -1,6 +1,6 @@
 import React from 'react';
 import about from '../../../../resouces/images/AboutImages/about.jpg';
-import '../SubAbout.scss';
+import '../SubAbout.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';

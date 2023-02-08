@@ -15,7 +15,7 @@ export const loadUser = () => (dispatch, getState) => {
 	//User loading
 	dispatch({ type: USER_LOADING });
 	axios
-		.get('/user/profile', tokenConfig(getState))
+		.get('https://coffee-nslh.onrender.com/', tokenConfig(getState))
 		.then((res) =>
 			dispatch({
 				type: USER_LOADED,
@@ -39,7 +39,7 @@ export const register = ({ name, email, password }) => (dispatch) => {
 	const body = JSON.stringify({ name, email, password });
 
 	axios
-		.post('/user/create', body, config)
+		.post('https://coffee-nslh.onrender.com/user/create', body, config)
 		.then((res) =>
 			dispatch({
 				type: REGISTER_SUCCESS,

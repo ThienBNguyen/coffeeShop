@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import SubMenuDesserts from './SubMenuDesserts.jsx';
 import SubMenuDrinks from './SubMenuDrinks.jsx';
-import './SubMenu.scss';
+import './SubMenu.css';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 import MenuIntro from './MenuIntro/MenuIntro';

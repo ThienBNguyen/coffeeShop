@@ -1,6 +1,6 @@
 import React from 'react';
 import bg3 from '../../../resouces/images/backgroundImages/bg_3.jpg';
-import './IntroComponent.scss';
+import './IntroComponent.css';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 export default function IntroTest(intro) {

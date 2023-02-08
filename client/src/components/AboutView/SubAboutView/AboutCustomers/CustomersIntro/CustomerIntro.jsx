@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../SubAboutView/SubAbout.scss';
+import '../../SubAbout.css';
 export default function CustomerIntro() {
   return (
     <div className="col-md-7 mx-auto about-customer text-center">

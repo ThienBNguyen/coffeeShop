@@ -1,5 +1,5 @@
 import React from 'react';
-import '.././SubAbout.scss';
+import '../SubAbout.css';
 import AboutMenuSection from './AboutMenuSection/AboutMenuSection';
 import AboutMenuImages from './AboutMenuImage/AboutMenuImage';
 import Container from 'react-bootstrap/Container';

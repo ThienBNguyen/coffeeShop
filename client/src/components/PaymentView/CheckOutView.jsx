@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AddressForm from './AddressForm';
-import "./style.scss"
+import "./style.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { removeAllFromCart } from "../../action/cartActions/cartActions"
 import { Paper, Typography, Stepper, Step, StepLabel, CssBaseline } from '@material-ui/core';

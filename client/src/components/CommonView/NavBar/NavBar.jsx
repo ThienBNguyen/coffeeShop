@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import "./style.scss";
+import "./style.css";
 import { connect } from "react-redux"
 import LogoutView from "../../userView/LogoutView"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -16,10 +16,10 @@ const NavBar = ({ auth }) => {
     <Fragment>
       <NavLink className="nav-link" to="/register">
         Register
-          </NavLink>
+      </NavLink>
       <NavLink className="nav-link" to="/login">
         Log In
-          </NavLink>
+      </NavLink>
     </Fragment>
   )
 

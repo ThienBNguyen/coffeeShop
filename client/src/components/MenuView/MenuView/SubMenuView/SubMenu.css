@@ -1,3 +1,4 @@
+
 .subheading {
   font-size: 3rem;
   line-height: 1;
@@ -20,8 +21,7 @@
 }
 
 .SubMenuItems {
-  display: -webkit-box;
-  display: -ms-flexbox;
+
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -32,4 +32,10 @@
   margin: auto;
   gap: 1rem;
 }
-/*# sourceMappingURL=SubMenu.css.map */
+@media (max-width: 688px) {
+  .SubMenuItems {
+  width: 100%;
+ }
+}
+
+

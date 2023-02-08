@@ -3,7 +3,7 @@ import AboutUs from './SubFooter/AboutUs';
 import Hours from './SubFooter/Hours';
 import Instagram from './SubFooter/Instagram';
 import Contact from './SubFooter/Contact';
-import './Footer.scss';
+import './Footer.css';
 import { Container, Row, Col } from 'react-bootstrap';
 const footer = () => {
   return (

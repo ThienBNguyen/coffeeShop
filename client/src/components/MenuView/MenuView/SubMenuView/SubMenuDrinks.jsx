@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import './SubMenu.scss';
+import './SubMenu.css';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { useSelector, useDispatch } from 'react-redux'
 import { getProducts as listProducts } from "../../../../action/cartActions/productActions"
@@ -43,7 +43,7 @@ const SubMenuDrinks = () => {
       )
 
     } else {
-      return null
+      return
     }
   });
 
