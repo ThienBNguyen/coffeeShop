@@ -1,5 +1,6 @@
 import React, { } from 'react';
 // import DessertImages from '../../../../resouces/images/menuImages/dessertImages';
+import foodMenu from "../../../../resouces/images/menuImages/menujson";
 import './SubMenu.css';
 import { Card, Button } from 'react-bootstrap';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
@@ -9,26 +10,26 @@ const SubMenuDesserts = () => {
   const dispatch = useDispatch()
   const getProducts = useSelector((state) => state.getProducts)
   const { products } = getProducts
-
+  console.log(products);
   const addToCartHandler = (product) => {
     dispatch(addToCart(product, 1));
   }
+  console.log(foodMenu);
   return (
     <div className="SubMenuItems">
-      {products.map(function (item, i) {
+      {foodMenu.map(function (item, i) {
         if (item.food === true) {
           return (
             <Card
               key={i}
-              style={{ width: '18rem' }}
-              className="bg-transparent border-transparent"
+              // style={{ width: '18rem' }}
+              className="cards bg-transparent border-transparent "
             >
               <Card.Img
                 variant="top"
                 src={item.imagePath}
                 alt={item.imagePath}
-                width={300}
-                height={300}
+                className='card-img'
               />
               <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
@@ -40,7 +41,7 @@ const SubMenuDesserts = () => {
             </Card>
           );
         } else {
-          return
+          return null
         }
       })}</div>
   );
