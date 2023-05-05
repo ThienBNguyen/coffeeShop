@@ -1,73 +1,47 @@
-# Coffee-Shop-2020
-A simple Coffee Shop website using React
-Thien Nguyen
-Bao Nguyen
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Coffee Shop E-commerce App https://trunghoa.netlify.app/
+This is a Coffee Shop E-commerce application built using React.js for the frontend, Node.js with Express.js for backend routing, and MongoDB as the NoSQL database. 
+The app allows users to select drinks and desserts, make purchases using Stripe API for payment, and view their purchased items in their user dashboard.
 
-## Available Scripts
+Features
+User authentication: Users can sign up and log in to their accounts to make purchases.
+Product selection: Users can browse and select drinks and desserts from the menu.
+Shopping cart: Users can add items to their cart, view the cart, and make purchases.
+Payment integration: Purchases are processed using Stripe API for secure and seamless transactions.
+User dashboard: Users can view their purchase history and saved items in their dashboard.
 
-In the project directory, you can run:
+Installation
+Clone the repository: git clone https://github.com/ThienBNguyen/coffeeShop.git
+Navigate to the project directory: 
+Navigate to the frontend directory: cd client
+Run npm install to install the required packages.
+Install dependencies for the backend:
+Navigate to the backend directory: cd server
+Run npm install to install the required packages.
+Set up MongoDB:
+Install MongoDB and ensure it is running on your local machine.
 
-### `npm start`
+Create a new MongoDB database.
+Update the MongoDB connection string in backend/config/database.js.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Set up Stripe API:
+Sign up for a Stripe account and obtain your API keys.
+Update the Stripe API keys in frontend/src/components/PaymentView/PaymentForm.jsx.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Start the application:
+In the frontend directory, run npm start to start the frontend server.
+In the backend directory, run npm start to start the backend server.
 
-### `npm test`
+Usage
+Open your browser and navigate to http://localhost:3000 to access the Coffee Shop E-commerce application.
+Sign up for a new account or log in if you already have one.
+Browse the menu and add drinks and desserts to your cart.
+Review your cart and proceed to the checkout page.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Enter your payment details and complete the purchase using Stripe.
+After a successful purchase, you can view your order history and saved items in your user dashboard.
 
-### `npm run build`
+Contributing
+Contributions are welcome! If you would like to contribute to this project, please fork the repository and create a new branch for your feature or bug fix. Submit a pull request with your changes, and we will review and merge it if it aligns with the project's goals.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
+License
+This project is licensed under the MIT License. Feel free to modify and distribute it as per the license terms.
